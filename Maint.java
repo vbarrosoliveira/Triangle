@@ -6,6 +6,7 @@ import java.util.Scanner;
 //equilateral,isosceles,scalene,right
 
 
+
 //missing :
 // classification right  , make sure there is data being passed,
 // treat if data is a string!!
@@ -20,9 +21,26 @@ public class Maint {
 
 
             int a = 0;
+// Ma solution...............................................................................................................................................
+        // int i=0;
+//         while(i<1){
+
+//         try{
+//         System.out.println("veuillez entrer la valeur du premier coté");
+//         side = Double.parseDouble(myObj.nextLine());
+//         }
+//         catch(Exception e){
+//             System.out.println("erreur input");
+//             i--;
+//         }
+//         i++;
+//     }
+//.................................................................................................................................................................
             while (a < 3) {
                 System.out.println("Enter each side of the triangle followed by  the enter key:");
+                
                 try {
+                    
                    
                     side = Double.parseDouble(myObj.next());
                     side1 = Double.parseDouble(myObj.next());
