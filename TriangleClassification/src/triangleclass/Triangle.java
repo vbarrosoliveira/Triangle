@@ -1,5 +1,4 @@
 package triangleclass;
-import java.awt.*;
 
 public class Triangle {
 
@@ -10,9 +9,9 @@ public class Triangle {
     Subclasses of different packages.
 
      */
-    protected double first_side ;
+    protected double first_side;
     protected double second_side;
-    protected double third_side=0;
+    protected double third_side = 0;
 
     private String area;  //private variables can only be accessed within the same class
     private String classification;
@@ -25,7 +24,7 @@ public class Triangle {
         //3 different ways of declaring the parameters inside the constructor
 
         this.first_side = premiereLongueur;  //required
-        second_side= sideb;   //required
+        second_side = sideb;   //required
         setThird_side(side2);   //required
 
         //and then it tests if the input is valid (optional)
@@ -33,12 +32,14 @@ public class Triangle {
     }
 
     //this method returns the area
-    private  String triangle_area (){
+    private String triangle_area() {
         double semi_perimeter = (first_side + second_side + third_side) / 2;
         double inside_the_root = semi_perimeter * (semi_perimeter - first_side) * (semi_perimeter - second_side) * (semi_perimeter - third_side);
         double area = Math.sqrt(inside_the_root);
         return String.format("%.2f", area);
     }
+
+
    //the set method
     private void setThird_side(double side) {
 
@@ -50,11 +51,23 @@ public class Triangle {
         if (it_is_a_triangle()) {
             area = triangle_area();
             classification = triangle_class();
+            triangle_right();
+
         } else {
             throw new RuntimeException("Sorry, this is not a triangle");
         }
     }
 
+    private String triangle_right() {
+        if (first_side * first_side == second_side * second_side + third_side * third_side || second_side * second_side == first_side * first_side + third_side * third_side ||third_side * third_side == second_side * second_side + first_side * first_side){
+            return "This triangle is right";
+        }else
+
+        {
+            return "This triangle is not right";
+        }
+
+    }
     //this method returns the triangle classification
     private String triangle_class (){
         if (first_side == second_side && second_side == third_side) {
@@ -77,7 +90,7 @@ public class Triangle {
     }
 
     public String getType() {
-        return " Triangle's area : " + area + "\n Triangle's classification :"  + classification;
+        return " Triangle's area : " + area + "\n Triangle's classification :"  + classification + "\n" +triangle_right();
     }
 
 }
